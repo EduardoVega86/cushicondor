@@ -101,7 +101,7 @@ echo $fecha_formateada;
                 bottom: 0cm; 
                 left: 0cm; 
                 right: 0cm;
-                height: 20.5cm;
+                height: 20cm;
             }
 
             table {
@@ -514,7 +514,7 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 $pdf = $dompdf->output();
-$filename = "Precontrato_".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
+$filename = "Contrato_".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
 
 //file_put_contents($filename, $pdf);
 ob_end_clean(); //limpiar para cargar mas imagenes
