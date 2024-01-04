@@ -91,7 +91,7 @@ while ($row = mysqli_fetch_array($query)) {
             <?php
             } ?>
             <?php if($id==3){ ?>
-            <a href="">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
+            <a href="precontrato/licitud_fondos.php?id_usuario=<?php echo $id_usuario; ?>&id_camion=<?php echo $id_camion; ?>">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
             <?php
             } ?>
             <?php if($id==4){ ?>
@@ -99,11 +99,11 @@ while ($row = mysqli_fetch_array($query)) {
             <?php
             } ?>
             <?php if($id==5){ ?>
-            <a href="">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
+            <a href="precontrato/precontrato.php?id_usuario=<?php echo $id_usuario; ?>&id_camion=<?php echo $id_camion; ?>">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
             <?php
             } ?>
             <?php if($id==6){ ?>
-            <a href="">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
+            <a href="precontrato/contrato.php?id_usuario=<?php echo $id_usuario; ?>&id_camion=<?php echo $id_camion; ?>">   <img  width="40px" src="../../images/pdf.png" alt=""/></a>
             <?php
             } ?>
         
