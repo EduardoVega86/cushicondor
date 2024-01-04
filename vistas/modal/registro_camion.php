@@ -6,11 +6,11 @@ if (isset($conexion)) {
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h4 class="modal-title"><i class='fa fa-edit'></i> Nueva Camion</h4>
+					<h4 class="modal-title"><i class='fa fa-edit'></i> Registro Camion</h4>
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" method="post" id="guardar_camion" name="guardar_camion">
-						<div id="resultados_ajax2"></div>
+						<div id="resultados_nuevo_camion"></div>
 
 						<div class="row">
 							<div class="col-md-6">
@@ -28,7 +28,7 @@ if (isset($conexion)) {
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="lastname" class="control-label">Placa:</label>
-                                                                        <input type="text" class="form-control UpperCase" id="placa" name="placa" placeholder="Ingrese Placa" required>
+                                                                        <input type="text" class="form-control UpperCase" id="placa" name="placa" placeholder="Ingrese Placa">
 								</div>
 							</div>
 						</div>
@@ -99,7 +99,7 @@ if (isset($conexion)) {
 $anioActual = date("Y");
 
 echo '<select class="form-control " id="anio" name="anio" required>';
-
+echo "<option value=''>Seleccione año</option>";
 // Bucle para los últimos 5 años
 for ($i = -1; $i < 5; $i++) {
     // Año a mostrar
@@ -114,6 +114,20 @@ echo '</select>';
                                                                       
 								</div>
 							</div>
+   
+							
+						</div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+							<div class="form-group">
+									<label for="user_email" class="control-label">Chasis:</label>
+								<input type="text" class="form-control UpperCase" id="chasis" name="chasis" placeholder="Ingrese Chasis" required>	
+								</div>	
+                                                        
+							</div>
+							
+    
    
 							
 						</div>
