@@ -177,7 +177,7 @@ transporte. El Sr. JESUS WLADIMIR ARICO TOLEDO es propietario y/o
 autorizado por los propietarios a administrar el siguiente vehículo:
             </p>
 <p style="text-align: justify;">
-                <strong> MARCA:</strong> <?php echo get_row('brand', 'name', 'id', get_row('camiones', 'brand_id', 'id', $id_camion)) ; ?> <strong>PLACAS:</strong><?php echo get_row('camiones', 'anio', 'id', $id_camion); ?> <strong>AÑO:</strong> <?php echo get_row('camiones', 'anio', 'id', $id_camion); ?> <strong>TIPO:</strong> <?php echo get_row('vantype', 'name', 'id', get_row('camiones', 'vantype_id', 'id', $id_camion)) ; ?> <strong>TON: </strong> <?php echo get_row('weight', 'name', 'id', get_row('camiones', 'weight_id', 'id', $id_camion)) ; ?> <strong>CLASE: </strong>CAMION  <strong>NÚMERO DE CHASIS: </strong> <?php echo get_row('camiones', 'chasis', 'id', $id_camion); ?>.
+                <strong> MARCA:</strong> <?php echo get_row('brand', 'name', 'id', get_row('camiones', 'brand_id', 'id', $id_camion)) ; ?> <strong>PLACAS:</strong><?php echo get_row('camiones', 'placa', 'id', $id_camion); ?> <strong>AÑO:</strong> <?php echo get_row('camiones', 'anio', 'id', $id_camion); ?> <strong>TIPO:</strong> <?php echo get_row('vantype', 'name', 'id', get_row('camiones', 'vantype_id', 'id', $id_camion)) ; ?> <strong>TON: </strong> <?php echo get_row('weight', 'name', 'id', get_row('camiones', 'weight_id', 'id', $id_camion)) ; ?> <strong>CLASE: </strong>CAMION  <strong>NÚMERO DE CHASIS: </strong> <?php echo get_row('camiones', 'chasis', 'id', $id_camion); ?>.
             </p>
             <p style="text-align: justify;">El vehículo en mención se encuentra en perfectas condiciones de
 funcionamiento. Se adjuntan, copia de cédula y papeleta de votación, Matrícula,
