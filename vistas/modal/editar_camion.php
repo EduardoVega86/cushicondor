@@ -10,7 +10,7 @@ if (isset($conexion)) {
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" method="post" id="editar_camion" name="editar_camion">
-						<div id="resultados_ajax2"></div>
+						<div id="resultados_actualiza_camion"></div>
 
 						<div class="row">
 							<div class="col-md-6">
@@ -118,7 +118,19 @@ echo '</select>';
    
 							
 						</div>
-                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+							<div class="form-group">
+									<label for="user_email" class="control-label">Chasis:</label>
+								<input type="text" class="form-control UpperCase" id="chasis2" name="chasis2" placeholder="Ingrese Chasis" required>	
+								</div>	
+                                                        
+							</div>
+							
+    
+   
+							
+						</div>
 						
 
 						
