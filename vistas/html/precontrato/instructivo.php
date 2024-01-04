@@ -61,7 +61,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 bottom: 0cm; 
                 left: 0cm; 
                 right: 0cm;
-                height: 20.5cm;
+                height: 20cm;
             }
 
             table {
@@ -219,8 +219,9 @@ require_once("../dompdf/vendor/autoload.php");
 use Dompdf\Dompdf;
 $dompdf = new DOMPDF();
 $dompdf->load_html(ob_get_clean());
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
-$dompdf->setPaper('A4', 'landscape');
+
 $pdf = $dompdf->output();
 $filename = "Instructivo".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
 
