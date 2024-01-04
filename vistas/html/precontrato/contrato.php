@@ -173,7 +173,7 @@ sean requeridos por <strong> TRANSPORTES CUSHICONDOR S.A.</strong>
             <p style="text-align: justify;">EL ARRENDATARIO, de conformidad con su oferta, puesta de manifiesto en el
 presente CONTRATO, se obliga para con TRANSPORTES CUSHICONDOR
 S.A, a la prestación de servicios de alquiler y/o prestación de servicio de
-transporte. <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){ echo 'el';}else{ echo 'la';} ?> <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?>. <?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?> es propietario y/o
+transporte. <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){ echo 'El';}else{ echo 'La';} ?> <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?>. <?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?> es propietario y/o
 autorizado por los propietarios a administrar el siguiente vehículo:
             </p>
 <p style="text-align: justify;">
