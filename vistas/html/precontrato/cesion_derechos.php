@@ -60,7 +60,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 bottom: 0cm; 
                 left: 0cm; 
                 right: 0cm;
-                height: 20.5cm;
+                height: 20cm;
             }
 
             table {
@@ -104,7 +104,10 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
             <br>
             <p  style='text-align: justify;'>Se sirva dar el trámite correspondiente a la transferencia de UNA ACCIÓN, 
               con un valor nominal de UN DÓLAR AMERICANO, acción pagada en un 100% entre el señor RONAL ALFREDO HERNANDEZ MONTILVA, 
-              portador de la cedula de ciudadanía número 175860525-5 en calidad de Cedente a la 
+              portador de la cedula de ciudadanía número 175860525-5 en calidad de Cedente <?php if(get_row('users', 'genero', 'id_users', $id_usuario)==Sr){echo 'al';
+              }else{
+               echo 'a la';
+              } ?> 
               <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?>.  <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?>, portador de la cédula de ciudadanía <?php echo get_row('users', 'identificacion', 'id_users', $id_usuario); ?>. En calidad de Cesionario, de conformidad con el Art.  191 de la ley de compañías.</p>
               <table width='100%' style='margin-top: 120px'>
                 <tr>
@@ -132,8 +135,8 @@ require_once("../dompdf/vendor/autoload.php");
 use Dompdf\Dompdf;
 $dompdf = new DOMPDF();
 $dompdf->load_html(ob_get_clean());
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
-$dompdf->setPaper('A4', 'landscape');
 $pdf = $dompdf->output();
 $filename = "CesionDerechos_".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
 //file_put_contents($filename, $pdf);
