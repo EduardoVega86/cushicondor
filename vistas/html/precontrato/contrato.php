@@ -80,7 +80,7 @@ echo $fecha_formateada;
                 margin-left: 3cm;
                 margin-right: 3cm;
                 z-index: 1;
-                font-size: 12px;
+                font-size: 13px;
                
             }
 
