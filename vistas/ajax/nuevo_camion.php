@@ -15,6 +15,7 @@ if (empty($_POST['usuariocamion'])) {
     $brand = mysqli_real_escape_string($conexion, (strip_tags($_POST["brand"], ENT_QUOTES)));
     $weight = mysqli_real_escape_string($conexion, (strip_tags($_POST["weight"], ENT_QUOTES)));
     $anio = mysqli_real_escape_string($conexion, (strip_tags($_POST["anio"], ENT_QUOTES)));
+    $chasis = mysqli_real_escape_string($conexion, (strip_tags($_POST["chasis"], ENT_QUOTES)));
     
   //  $estado      = intval($_POST['estado']);
     $date_added  = date("Y-m-d H:i:s");
@@ -28,8 +29,8 @@ if (empty($_POST['usuariocamion'])) {
     } else {
         // write new user's data into database
 
-        $sql = "INSERT INTO `camiones` ( `placa`, `brand_id`, `vantype_id`, `weight_id`, `anio`, `user_id`, `estado_id`, `status`, `created_at`)"
-                . " VALUES ('$placa','$brand','$vantype','$weight','$anio','$usuariocamion','$estadocamion','0','$date_added')";
+        $sql = "INSERT INTO `camiones` ( `placa`, `brand_id`, `vantype_id`, `weight_id`, `anio`, `user_id`, `estado_id`, `status`, `created_at`, `chasis`)"
+                . " VALUES ('$placa','$brand','$vantype','$weight','$anio','$usuariocamion','$estadocamion','0','$date_added','$chasis')";
         $query_new_insert = mysqli_query($conexion, $sql);
 
         if ($query_new_insert) {
