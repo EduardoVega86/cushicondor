@@ -19,6 +19,41 @@ $path = '../images/header.webp';
 $type = pathinfo($path, PATHINFO_EXTENSION);
 $data = file_get_contents($path);
 $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+// Crear una marca de tiempo para la fecha específica
+           setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
+
+$fecha = mktime(0, 0, 0, 1, 4, 2024); // 4 de enero del 2024
+
+// Formatear la fecha
+$fecha_formateada = strftime("%A %d de %B del %Y", $fecha);
+
+//echo $fecha_formateada; // Muestra "jueves 4 de enero del 2024"
+
+setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
+
+// Suponiendo que estas variables están definidas
+$numero_dia = 4; // Por ejemplo, el día 4
+$nombre_mes = 'enero'; // Por ejemplo, enero
+$anio_actual = 2024; // Por ejemplo, el año 2024
+
+// Convertir el nombre del mes a un número de mes
+$meses = [
+    'enero' => 1, 'febrero' => 2, 'marzo' => 3, 'abril' => 4,
+    'mayo' => 5, 'junio' => 6, 'julio' => 7, 'agosto' => 8,
+    'septiembre' => 9, 'octubre' => 10, 'noviembre' => 11, 'diciembre' => 12
+];
+
+$mes_numero = $meses[strtolower($nombre_mes)];
+
+// Crear la marca de tiempo
+$fecha = mktime(0, 0, 0, $mes_numero, $numero_dia, $anio_actual);
+
+// Formatear la fecha
+$fecha_formateada = strftime("%e días del mes de %B del año %Y", $fecha);
+
+echo $fecha_formateada;
+
 ?>
     <head>
         <style>
@@ -36,7 +71,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
             /** Define now the real margins of every page in the PDF **/
             body {
                 font-family: 'Source Sans Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
-                margin-top: 4cm;
+                margin-top: 4.5cm;
                 margin-bottom: 5cm;
                 margin-left: 3cm;
                 margin-right: 3cm;
@@ -52,6 +87,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 left: 0cm;
                 right: 0cm;
                 height: 1cm;
+                z-index: 0;
               
             }
 
@@ -90,7 +126,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
         </footer>
 
         <!-- Wrap the content of your PDF inside a main tag -->
-        <main style="margin-top:10px">
+        <main style="margin-top:10px;   z-index: 2;">
         <!--h4 style=" margin-top:-20px; margin-left: 6cm; position: fixed; z-index:100 !important;0">RUC: 1792475570001</h4-->
       
         <p style="text-align: center";><strong>
@@ -100,10 +136,10 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
         </p>
         <br>
         
-            <p style="text-align: justify;"><strong>PRIMERA.- COMPARECIENTES: </strong>En la ciudad de SANGOLQUI, a los {{$numero_dia}} días del mes de {{$nombre_mes}} del año {{$anio_actual}}, comparecen a celebrar el 
-                presente instrumento, por una parte: <?php if($usuario->gender='Sr.'){ echo 'el';}else{ echo 'la';} ?>
-                <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){ echo 'el';}else{ echo 'la';} ?> <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?><?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?></strong>, con cédula de ciudadanía número {{ strtoupper($usuario->identificacion)}}, 
-                de estado civil: SOLTERO; 
+            <p style="text-align: justify;"><strong>PRIMERA.- COMPARECIENTES: </strong>En la ciudad de SANGOLQUI, a los<?php echo $fecha_formateada?>, comparecen a celebrar el 
+                presente instrumento, por una parte:  
+                <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){ echo 'el';}else{ echo 'la';} ?> <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?>. <?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?></strong>, con cédula de ciudadanía número <?php echo get_row('users', 'identificacion', 'id_users', $id_usuario); ?>, 
+                de estado civil: <?php echo get_row('users', 'estado_civil', 'id_users', $id_usuario); ?>; 
                 domiciliado en <?php echo get_row('users', 'direccion', 'id_users', $id_usuario); ?> ; quien se presenta en calidad de FUTURO ARRENDADOR; y por otra parte, el Sr. RONAL ALFREDO HERNANDEZ MONTILVA. 
                 como representante autorizado de la Compañía <strong>TRANSPORTES CUSHICONDOR S.A</strong> con RUC. 1792475570001, en calidad de FUTURO ARRENDATARIO. Los comparecientes, 
                 son mayores de edad, hábiles en derecho para contratar y obligarse; quienes libre y voluntariamente convienen en celebrar el presente: 
@@ -114,7 +150,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
                 (o cuando la empresa facilitadora de adquirirlo, así lo determine oportunamente), para con <strong>TRANSPORTES CUSHICONDOR S.A</strong>, a la prestación de servicios de 
                 alquiler y/o prestación de servicio de transporte. <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){ echo 'el';}else{ echo 'la';} ?> <?php echo get_row('users', 'genero', 'id_users', $id_usuario); ?><?php echo get_row('users', 'apellido_users', 'id_users', $id_usuario); ?> <?php echo get_row('users', 'nombre_users', 'id_users', $id_usuario); ?>, 
                 será el propietario/a y/o autorizado/a por los propietarios a administrar el siguiente vehículo; 
-                MARCA: <?php echo get_row('camiones', 'brand_id', 'id', $id_camion); ?> AÑO: {{ $camion->anio }} CLASE: CAMION TIPO: {{ $camion->vanType->name }} {{ $camion->weight->name }} TON.  El vehículo en mención deberá acreditar perfecto estado mecánico y operativo, sin perjuicio de las revisiones adicionales a que hubiese lugar.
+                <strong> MARCA:</strong> <?php echo get_row('brand', 'name', 'id', get_row('camiones', 'brand_id', 'id', $id_camion)) ; ?> <strong>AÑO:</strong> <?php echo get_row('camiones', 'anio', 'id', $id_camion); ?> <strong>CLASE: </strong>CAMION <strong>TIPO:</strong> <?php echo get_row('vantype', 'name', 'id', get_row('camiones', 'vantype_id', 'id', $id_camion)) ; ?> <?php echo get_row('weight', 'name', 'id', get_row('camiones', 'weight_id', 'id', $id_camion)) ; ?> TON.  El vehículo en mención deberá acreditar perfecto estado mecánico y operativo, sin perjuicio de las revisiones adicionales a que hubiese lugar.
             </p>
 
             <p style="text-align: justify;">EL FUTURO ARRENDADOR reconoce y acepta que por la naturaleza de la obra y/o actividad, <strong>TRANSPORTES CUSHICONDOR S.A.</strong> podrá modificar a 
@@ -241,8 +277,9 @@ require_once("../dompdf/vendor/autoload.php");
 use Dompdf\Dompdf;
 $dompdf = new DOMPDF();
 $dompdf->load_html(ob_get_clean());
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
-$dompdf->setPaper('A4', 'landscape');
+
 $pdf = $dompdf->output();
 $filename = "Precontrato_".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
 
