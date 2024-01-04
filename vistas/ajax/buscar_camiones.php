@@ -77,6 +77,7 @@ while ($row = mysqli_fetch_array($query)) {
             $weight_id = $row['weight_id'];
             $anio = $row['anio'];
             $estado_id = $row['estado_id'];
+             $chasis = $row['chasis'];
             
            // $date_added   = date('d/m/Y', strtotime($row['date_added']));
 //            if ($estado_linea == 1) {
@@ -93,6 +94,7 @@ while ($row = mysqli_fetch_array($query)) {
     <input type="hidden" value="<?php echo $weight_id; ?>" id="weight_id<?php echo  $id; ?>">
     <input type="hidden" value="<?php echo $anio; ?>" id="anio<?php echo  $id; ?>">
     <input type="hidden" value="<?php echo $estado_id; ?>" id="estado<?php echo  $id; ?>">
+    <input type="hidden" value="<?php echo $chasis; ?>" id="chasis<?php echo  $id; ?>">
 
     <tr onclick="documentos(<?php echo $id; ?>)" id="camion<?php echo $id; ?>">
         <td><span class="badge badge-purple"><?php echo $id; ?></span></td>
