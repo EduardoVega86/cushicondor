@@ -104,7 +104,7 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
             <br>
             <p  style='text-align: justify;'>Se sirva dar el trámite correspondiente a la transferencia de UNA ACCIÓN, 
               con un valor nominal de UN DÓLAR AMERICANO, acción pagada en un 100% entre el señor RONAL ALFREDO HERNANDEZ MONTILVA, 
-              portador de la cedula de ciudadanía número 175860525-5 en calidad de Cedente <?php if(get_row('users', 'genero', 'id_users', $id_usuario)==Sr){echo 'al';
+              portador de la cedula de ciudadanía número 175860525-5 en calidad de Cedente <?php if(get_row('users', 'genero', 'id_users', $id_usuario)=='Sr'){echo 'al';
               }else{
                echo 'a la';
               } ?> 
