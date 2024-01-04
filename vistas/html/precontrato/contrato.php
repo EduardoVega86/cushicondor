@@ -484,7 +484,7 @@ libre y voluntaria en unidad de acto y por triplicado.
             <br>
             <br>
             
-              <table width="100%" style="margin-top: 120px">
+              <table width="100%" style="margin-top: 120px; font-size: 13px !important;">
                 <tr>
                     <td width="50%">
                         <hr> 
