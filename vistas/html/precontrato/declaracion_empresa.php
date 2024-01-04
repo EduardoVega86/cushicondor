@@ -137,8 +137,9 @@ require_once("../dompdf/vendor/autoload.php");
 use Dompdf\Dompdf;
 $dompdf = new DOMPDF();
 $dompdf->load_html(ob_get_clean());
+$dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
-$dompdf->setPaper('A4', 'landscape');
+
 $pdf = $dompdf->output();
 $filename = "DeclaracionEmpresa_".get_row('users', 'nombre_users', 'id_users', $id_usuario).get_row('users', 'apellido_users', 'id_users', $id_usuario).'.pdf';
 //file_put_contents($filename, $pdf);
