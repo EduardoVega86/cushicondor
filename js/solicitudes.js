@@ -67,6 +67,7 @@
                         fila='#solicitud'+id
                         page=1;
                         $("#usuarioseleccionado").val(id);
+                        
                         $("#usuariocamion").val(id);
                         
                         id= $("#usuarioseleccionado").val();
@@ -122,18 +123,18 @@
 		            $("#resultados_ajax").html('<img src="../../img/ajax-loader.gif"> Cargando...');
 		        },
 		        success: function(datos) {
-		            $("#resultados_ajax2").html(datos);
+		            $("#resultados_nuevo_camion").html(datos);
 		            $('#guardar_datos_camion').attr("disabled", false);
-		            camion(1);
+		            camion($("#usuarioseleccionado").val());
 		            //resetea el formulario
-		            //$("#guardar_usuario")[0].reset();
+		            $("#guardar_camion")[0].reset();
 		            $("#firstname").focus();
 		            //desaparecer la alerta
 		            window.setTimeout(function() {
 		                $(".alert").fadeTo(200, 0).slideUp(200, function() {
 		                    $(this).remove();
 		                });
-		            }, 2000);
+		            }, 8000);
 		        }
 		    });
 		    event.preventDefault();
@@ -195,14 +196,14 @@
 		    var parametros = $(this).serialize();
 		    $.ajax({
 		        type: "POST",
-		        url: "../ajax/editar_usuario.php",
+		        url: "../ajax/editar_camion.php",
 		        data: parametros,
 		        beforeSend: function(objeto) {
-		            $("#resultados_ajax2").html('<img src="../../img/ajax-loader.gif"> Cargando...');
+		            $("#resultados_actualiza_camion").html('<img src="../../img/ajax-loader.gif"> Cargando...');
 		        },
 		        success: function(datos) {
-		            $("#resultados_ajax2").html(datos);
-		            $('#actualizar_datos2').attr("disabled", false);
+		            $("#resultados_actualiza_camion").html(datos);
+		            $('#editar_datos_camion').attr("disabled", false);
 		            load(1);
 		            //desaparecer la alerta
 		            window.setTimeout(function() {
@@ -312,15 +313,18 @@
 		    //var sucursal = $("#sucursal" + id).val();
                     var anio = $("#anio" + id).val();
                     var estado = $("#estado" + id).val();
-                   
+                    var chasis = $("#chasis" + id).val();
+                  // alert(chasis);
                    // alert(identificacion)
-		    $("#mod_camion_id").val(id);
+                   //alert()
+		    $("#mod_id_camion").val(id);
 		    $("#placa2").val(placa);
 		    $("#brand2").val(brand_id);
 		    $("#vantype2").val(vantype_id);
 		    $("#weight2").val(weight_id);
                     $("#anio2").val(anio);
                     $("#estadocamion2").val(estado);
+                    $("#chasis2").val(chasis);
                    
 		    
 		    //$("#sucursal2").val(sucursal);
