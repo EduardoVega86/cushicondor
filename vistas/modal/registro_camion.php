@@ -122,7 +122,7 @@ echo '</select>';
                                                     <div class="col-md-12">
 							<div class="form-group">
 									<label for="user_email" class="control-label">Chasis:</label>
-								<input type="text" class="form-control UpperCase" id="chasis" name="chasis" placeholder="Ingrese Chasis" required>	
+								<input type="text" class="form-control UpperCase" id="chasis" name="chasis" placeholder="Ingrese Chasis">	
 								</div>	
                                                         
 							</div>
