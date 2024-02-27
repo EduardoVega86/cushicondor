@@ -98,10 +98,13 @@ $headerbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 // Crear una marca de tiempo para la fecha específica
            setlocale(LC_TIME, 'es_ES.UTF-8', 'Spanish_Spain.1252');
 
-$fecha = mktime(0, 0, 0, 1, 4, 2024); // 4 de enero del 2024
+//$fecha = mktime(0, 0, 0, 1, 4, 2024); // 4 de enero del 2024
+
+$fechaActual = time(); // Obtiene la marca de tiempo actual
+//echo date('Y-m-d H:i:s', $fechaActual); // Formatea y muestra la fecha y hora actual
 
 // Formatear la fecha
-$fecha_formateada = strftime("%A %d de %B del %Y", $fecha);
+$fecha_formateada = strftime("%A %d de %B del %Y", $fechaActual);
 
 echo $fecha_formateada; // Muestra "jueves 4 de enero del 2024"
 ?> 
